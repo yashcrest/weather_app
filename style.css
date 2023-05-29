@@ -58,3 +58,9 @@ body{
     background-color : #7c7c7c6b;
     transition:  0.2s ease-in-out;
 }
+
+.box{
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+}
