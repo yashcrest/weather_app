@@ -4,14 +4,14 @@ body{
     justify-content: center; 
     height: 100vh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url('https://source.unsplash.com/1600/9000/?nepal');
 }
 
 .container{
-    border: red solid;
     width: 100%;
     max-width: 420px;
-    height: 300px;
-    border-radius: 30px;
+    /* height: 300px; */
+    max-height: fit-content;
     background-color: #000000d0;
     padding: 2em;
     margin: 1em;
@@ -63,4 +63,5 @@ body{
     display: block;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 20px
 }

@@ -18,7 +18,6 @@ let weather = {
         document.querySelector(".celcius").innerHTML = temp_c + "°C";
         document.querySelector(".humidity").innerHTML = humidity + "%";
         document.querySelector(".wind").innerHTML = wind_kph + "km/h";
-        document.body.style.background = url(`https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bc01c83c3da0425e9baa6c7a9204af81`);
         userInput.value = '';
     }
 }
