@@ -1,26 +1,33 @@
-const container = document.querySelector(".container");
-const apiKey = "34d6d8dc8a584ef6b4d92016232105"
-const userInput = document.querySelector("#userInput");
+let weather = {
+    apiKey : "34d6d8dc8a584ef6b4d92016232105",
+    fetchWeather: function (city) {
+        fetch("https://api.weatherapi.com/v1/current.json?q="+city+"&key=" + this.apiKey)
+        .then((res) => res.json())
+        .then((data) =>{
+            this.displayWeather(data);
+        })
+        .catch((error) => console.log("There was error fetching: " + error))
+    },
+    displayWeather: function(data) {
+        const { name } = data.location;
+        const {text, icon} = data.current.condition;
+        const {temp_c, humidity, wind_kph} = data.current;
+        console.log(name, icon, text, temp_c, humidity);
+        document.querySelector(".city").textContent = "Weather in " + name;
+        document.querySelector(".weatherImg").src = icon;
+        document.querySelector(".celcius").innerHTML = temp_c + "°C";
+        document.querySelector(".humidity").innerHTML = humidity + "%";
+        document.querySelector(".wind").innerHTML = wind_kph + "km/h";
+        
+    }
+}
+
 const searchBtn = document.querySelector("#searchBtn");
-const celcius = document.querySelector(".celcius");
+const userInput = document.querySelector("#userInput");
 
-
-//get user input
-searchBtn.addEventListener('click', getWeather);
+searchBtn.addEventListener('click', weather.fetchWeather(userInput.value));
 userInput.addEventListener('keyup' , ((e) =>{
     if(e.key ==='Enter'){
-        getWeather();
+        weather.fetchWeather(userInput.value)
     }
-}))
-
-function getWeather() {
-    fetch(`https://api.weatherapi.com/v1/current.json?q=${userInput.value}&key=${apiKey}`).then(res => res.json()).then(data => {
-        console.log(data);
-        let location = data.location.name
-        let celcisData = data.current.temp_c;
-        celcius.textContent = `${celcisData} °C`;
-        let img = document.createElement('img')
-        img.src = data.current.condition.icon;
-        container.appendChild(img);
-    }).catch(err => console.log(err));
-}
+}));
