@@ -4,13 +4,11 @@ body{
     justify-content: center; 
     height: 100vh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-image: url('https://source.unsplash.com/1600/9000/?nepal');
 }
 
 .container{
     width: 100%;
     max-width: 420px;
-    /* height: 300px; */
     max-height: fit-content;
     background-color: #000000d0;
     padding: 2em;
@@ -24,6 +22,23 @@ body{
     align-items: center;
     justify-content: center;
 
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.flex .description {
+    margin-bottom: 0p;
+}
+
+.celcius{
+    margin: 0;
+}
+
+.weatherImg{
+    height: max-content;
+    width: max-content;
 }
 
 .search input[type="text"]{
@@ -62,6 +77,6 @@ body{
 .box{
     display: block;
     flex-direction: column;
-    justify-content: space-between;
-    font-size: 20px
+    font-size: 20px;
+    font-family: inherit;
 }
