@@ -6,7 +6,7 @@ window.onload = loadWeather;
 
 let weather = {
     fetchWeather: function (city) {
-        fetch("https://api.weatherapi.com/v1/current.json?q="+city+"&key=" +apiKey)
+        fetch("https://api.weatherapi.com/v1/current.json?q="+city+"&key="+apiKey)
         .then((res) => res.json())
         .then((data) =>{
             this.displayWeather(data);
