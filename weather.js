@@ -10,6 +10,7 @@ let weather = {
         .then((res) => res.json())
         .then((data) =>{
             this.displayWeather(data);
+            console.log(data);
         })
         .catch((error) => console.log("There was error fetching: " + error))
     },
@@ -17,8 +18,6 @@ let weather = {
         const { name } = data.location;
         const {text, icon} = data.current.condition;
         const {temp_c, humidity, wind_kph} = data.current;
-        console.log(data);
-        console.log(name, icon, text, temp_c, humidity);
         document.querySelector(".city").textContent = "Weather in " + name;
         document.querySelector(".weatherImg").src = icon;
         document.querySelector(".celcius").innerHTML = temp_c + "°C";
